@@ -1,87 +1,392 @@
 
 <!DOCTYPE html>
-<html lang="te">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Telugu AI Academy</title>
+<title>Caramel AI Solutions</title>
+
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#101827;color:white}
-header{background:#172b4d;padding:25px 18px;text-align:center}
-header h1{color:#55d6be;margin:0}
-main{padding:18px}
-.card{background:#1e2d45;padding:18px;margin:15px 0;border-radius:14px}
-h2{color:#55d6be}
-button{background:#55d6be;color:#102033;border:0;padding:12px 18px;border-radius:8px;font-weight:bold}
-footer{text-align:center;padding:20px;color:#aaa}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #101827;
+  color: #ffffff;
+}
+
+header {
+  background: #172b4d;
+  padding: 24px 16px;
+  text-align: center;
+  border-bottom: 1px solid #273d5e;
+}
+
+header h1 {
+  margin: 0;
+  color: #55d6be;
+  font-size: 26px;
+}
+
+header p {
+  color: #d0d8e5;
+  margin-top: 8px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 14px;
+  background: #111e32;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  background: #243955;
+}
+
+nav a:hover {
+  background: #55d6be;
+  color: #101827;
+}
+
+.hero {
+  text-align: center;
+  padding: 45px 20px;
+  background: linear-gradient(135deg, #172b4d, #101827);
+}
+
+.hero h2 {
+  color: #55d6be;
+  font-size: 30px;
+}
+
+.hero p {
+  max-width: 650px;
+  margin: 15px auto;
+  line-height: 1.7;
+  color: #d4deeb;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 8px;
+  background: #55d6be;
+  color: #10202c;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  background: #38bca6;
+}
+
+section {
+  padding: 28px 16px;
+}
+
+.section-title {
+  color: #55d6be;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.card {
+  background: #1e2d45;
+  padding: 20px;
+  border-radius: 14px;
+  border: 1px solid #30425e;
+}
+
+.card h3 {
+  color: #55d6be;
+}
+
+.card p {
+  color: #c6d1e0;
+  line-height: 1.6;
+}
+
+.price {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.bundle {
+  max-width: 850px;
+  margin: auto;
+  text-align: center;
+  background: linear-gradient(135deg, #244768, #1e2d45);
+  border: 1px solid #55d6be;
+  border-radius: 16px;
+  padding: 26px;
+}
+
+.bundle h2 {
+  color: #55d6be;
+}
+
+.upload-box {
+  max-width: 850px;
+  margin: 18px auto;
+  background: #1e2d45;
+  padding: 22px;
+  border-radius: 14px;
+  border: 1px solid #30425e;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #465a78;
+  background: #111e32;
+  color: white;
+}
+
+input[type="file"] {
+  padding: 10px;
+}
+
+.status {
+  color: #55d6be;
+  margin-top: 12px;
+  overflow-wrap: anywhere;
+}
+
+footer {
+  text-align: center;
+  background: #0b1321;
+  padding: 24px 14px;
+  color: #aab7c9;
+  margin-top: 30px;
+  line-height: 1.8;
+}
+
+footer strong {
+  color: #55d6be;
+}
+
+.hidden {
+  display: none;
+}
+
+.small {
+  font-size: 13px;
+  color: #aab7c9;
+}
+
 </style>
 </head>
+
 <body>
+
 <header>
-<h1>Telugu AI Academy</h1>
-<p>Learn AI in Telugu | తెలుగులో AI నేర్చుకోండి</p>
+  <h1>Caramel AI Solutions</h1>
+  <p>Learn AI • Digital Ebooks • AI Resources</p>
 </header>
-<main>
-<div class="card">
-<h2>Welcome!</h2>
-<p>AI technology ni Telugu lo easy ga nerchukondi.</p>
-</div>
-<div class="card">
-<h2>1. AI Basics</h2>
-<p>Artificial Intelligence ante enti? Basics nunchi nerchukondi.</p>
-<button onclick="alert('AI Basics course coming soon!')">Start Learning</button>
-</div>
-<div class="card">
-<h2>2. AI Video Creation</h2>
-<p>AI avatars mariyu videos create cheyyadam nerchukondi.</p>
-<button onclick="alert('Video course coming soon!')">Start Learning</button>
-</div>
-<div class="card">
-<h2>3. AI Business</h2>
-<p>AI use chesi digital business ela start cheyyalo nerchukondi.</p>
-<button onclick="alert('Business course coming soon!')">Start Learning</button>
-</div>
-</main>
-<footer>© 2026 Telugu AI Academy</footer>
-</body>
-</html>
-<section id="ebooks" style="padding:25px;background:#101827;color:white;">
-  <h2 style="text-align:center;">📚 Telugu AI Academy E-Books</h2>
-  <p style="text-align:center;">Learn AI with practical guides</p>
 
-  <div style="background:#1e293b;padding:15px;margin:15px 0;border-radius:12px;">
-    <h3>1. AI Tools Beginner Guide</h3>
-    <p>AI basics to practical learning.</p>
-    <h3>₹99</h3>
-    <button onclick="alert('Purchase option coming soon!')">Buy Now</button>
-  </div>
+<nav>
+  <a href="#home">Home</a>
+  <a href="#store">Ebook Store</a>
+  <a href="#bundle">Ebook Bundle</a>
+  <a href="#upload">Upload</a>
+</nav>
 
-  <div style="background:#1e293b;padding:15px;margin:15px 0;border-radius:12px;">
-    <h3>2. ChatGPT Practical Guide</h3>
-    <p>Learn ChatGPT step by step.</p>
-    <h3>₹99</h3>
-    <button onclick="alert('Purchase option coming soon!')">Buy Now</button>
-  </div>
+<section class="hero" id="home">
+  <h2>Welcome to Caramel AI Solutions</h2>
+  <p>
+    Explore Artificial Intelligence, learn new digital skills,
+    and discover ebooks and digital learning resources
+    designed to help you grow.
+  </p>
+  <a href="#store" class="btn">Explore Ebook Store</a>
+</section>
 
-  <div style="background:#1e293b;padding:15px;margin:15px 0;border-radius:12px;">
-    <h3>3. AI Image Creation Guide</h3>
-    <p>Create images using AI tools.</p>
-    <h3>₹99</h3>
-    <button onclick="alert('Purchase option coming soon!')">Buy Now</button>
-  </div>
+<section id="store">
+  <h2 class="section-title">📚 Ebook Store</h2>
 
-  <div style="background:#1e293b;padding:15px;margin:15px 0;border-radius:12px;">
-    <h3>4. AI Video Creation Guide</h3>
-    <p>Create videos using AI.</p>
-    <h3>₹99</h3>
-    <button onclick="alert('Purchase option coming soon!')">Buy Now</button>
-  </div>
+  <div class="card-container">
 
-  <div style="background:#1e293b;padding:15px;margin:15px 0;border-radius:12px;">
-    <h3>5. AI for Small Business</h3>
-    <p>Use AI to grow your business.</p>
-    <h3>₹99</h3>
-    <button onclick="alert('Purchase option coming soon!')">Buy Now</button>
+    <div class="card">
+      <h3>🤖 AI Beginners Guide</h3>
+      <p>Learn AI basics, useful AI tools, and how to start using artificial intelligence.</p>
+      <p class="price">₹99</p>
+      <button class="btn" onclick="alert('Purchase system will be connected soon!')">
+        Buy Ebook
+      </button>
+    </div>
+
+    <div class="card">
+      <h3>✍️ ChatGPT Master Guide</h3>
+      <p>Learn prompts, content creation, productivity, and practical ChatGPT usage.</p>
+      <p class="price">₹149</p>
+      <button class="btn" onclick="alert('Purchase system will be connected soon!')">
+        Buy Ebook
+      </button>
+    </div>
+
+    <div class="card">
+      <h3>💰 AI Digital Business</h3>
+      <p>Discover digital products, AI-assisted business ideas, and online workflows.</p>
+      <p class="price">₹199</p>
+      <button class="btn" onclick="alert('Purchase system will be connected soon!')">
+        Buy Ebook
+      </button>
+    </div>
+
+    <div class="card">
+      <h3>🎨 AI Content Creator</h3>
+      <p>Explore AI content, image creation, video tools, and creator workflows.</p>
+      <p class="price">₹149</p>
+      <button class="btn" onclick="alert('Purchase system will be connected soon!')">
+        Buy Ebook
+      </button>
+    </div>
+
   </div>
 </section>
+
+<section id="bundle">
+  <div class="bundle">
+    <h2>🔥 AI Ebook Bundle Pack</h2>
+    <p>
+      Get multiple AI learning ebooks together in one digital bundle.
+      A convenient collection for beginners and digital creators.
+    </p>
+
+    <h3>Bundle Includes</h3>
+    <p>✔ AI Beginners Guide</p>
+    <p>✔ ChatGPT Master Guide</p>
+    <p>✔ AI Digital Business</p>
+    <p>✔ AI Content Creator</p>
+
+    <p class="price">Bundle Price: ₹399</p>
+
+    <button class="btn" onclick="alert('Bundle payment will be connected soon!')">
+      Buy Complete Bundle
+    </button>
+  </div>
+</section>
+
+<section id="upload">
+  <h2 class="section-title">📤 Digital Product Upload</h2>
+
+  <div class="upload-box">
+    <h3>Upload Ebook (PDF)</h3>
+    <p class="small">Select an ebook PDF from your device.</p>
+
+    <input type="file" id="ebookFile" accept=".pdf">
+
+    <button class="btn" onclick="previewEbook()">Preview File Details</button>
+
+    <div class="status" id="ebookStatus"></div>
+  </div>
+
+  <div class="upload-box">
+    <h3>📦 Upload Ebook Bundle (ZIP)</h3>
+    <p class="small">Choose your ebook collection ZIP file.</p>
+
+    <input type="file" id="zipFile" accept=".zip">
+
+    <button class="btn" onclick="previewZip()">Check ZIP File</button>
+
+    <div class="status" id="zipStatus"></div>
+
+    <button class="btn hidden" id="downloadZipBtn" onclick="downloadSelectedZip()">
+      Download Selected ZIP
+    </button>
+  </div>
+</section>
+
+<footer>
+  <strong>Caramel AI Solutions</strong><br>
+  Designed by Sandeep Kumar Enterprise<br>
+  © 2026 All Rights Reserved
+</footer>
+
+<script>
+
+function previewEbook() {
+  const file = document.getElementById("ebookFile").files[0];
+  const status = document.getElementById("ebookStatus");
+
+  if (!file) {
+    status.textContent = "Please select an ebook PDF first.";
+    return;
+  }
+
+  status.textContent =
+    "Selected Ebook: " + file.name +
+    " | Size: " + (file.size / 1024 / 1024).toFixed(2) + " MB";
+}
+
+function previewZip() {
+  const file = document.getElementById("zipFile").files[0];
+  const status = document.getElementById("zipStatus");
+  const downloadBtn = document.getElementById("downloadZipBtn");
+
+  if (!file) {
+    status.textContent = "Please select a ZIP bundle first.";
+    downloadBtn.classList.add("hidden");
+    return;
+  }
+
+  if (!file.name.toLowerCase().endsWith(".zip")) {
+    status.textContent = "Please select a valid ZIP file.";
+    downloadBtn.classList.add("hidden");
+    return;
+  }
+
+  status.textContent =
+    "Bundle selected: " + file.name +
+    " | Size: " + (file.size / 1024 / 1024).toFixed(2) + " MB";
+
+  downloadBtn.classList.remove("hidden");
+}
+
+function downloadSelectedZip() {
+  const file = document.getElementById("zipFile").files[0];
+
+  if (!file) {
+    alert("Select a ZIP file first.");
+    return;
+  }
+
+  const url = URL.createObjectURL(file);
+  const link = document.createElement("a");
+
+  link.href = url;
+  link.download = file.name;
+  link.click();
+
+  URL.revokeObjectURL(url);
+}
+
+</script>
+
+</body>
+</html>

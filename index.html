@@ -8,7 +8,7 @@
 <style>
 *{box-sizing:border-box}
 body{margin:0;background:#10131b;color:#f5f5f5;font-family:Arial,sans-serif}
-header{padding:22px;text-align:center;background:#1b2230;border-bottom:1px solid #333}
+header{text-align:center;padding:22px;background:#1b2230;border-bottom:1px solid #333}
 .logo{font-size:26px;font-weight:bold;color:#ffb45e}
 header p{color:#bbb;font-size:13px}
 nav{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;padding:14px}
@@ -16,7 +16,7 @@ button{cursor:pointer}
 nav button,.btn{border:0;padding:11px 15px;border-radius:9px;background:#ffae51;color:#181818;font-weight:bold}
 button:hover{opacity:.86}
 .hero{padding:40px 20px;text-align:center;background:linear-gradient(135deg,#28243a,#151923)}
-.hero h1{font-size:30px;margin:5px 0}
+.hero h1{font-size:30px}
 .hero p{color:#ccc;line-height:1.7}
 .search{display:block;margin:22px auto;width:90%;max-width:520px;padding:13px;border-radius:10px;border:1px solid #555;background:#222;color:white}
 .section{padding:20px;scroll-margin-top:20px}
@@ -26,198 +26,294 @@ button:hover{opacity:.86}
 .filters button.active{background:#ffae51;color:#111}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:15px}
 .card{background:#1c2230;border:1px solid #303746;border-radius:14px;padding:14px}
-.cover{height:150px;border-radius:10px;display:flex;align-items:center;justify-content:center;text-align:center;padding:12px;background:linear-gradient(145deg,#46345d,#171e30);font-size:21px;font-weight:bold;color:#ffcc8a}
+.cover{min-height:150px;border-radius:10px;display:flex;align-items:center;justify-content:center;text-align:center;padding:12px;background:linear-gradient(145deg,#46345d,#171e30);font-size:21px;font-weight:bold;color:#ffcc8a}
 .card h3{font-size:16px}
 .card p{color:#bbb;font-size:13px;line-height:1.5;min-height:58px}
 .price{font-size:18px;color:#ffbd70;font-weight:bold;margin:12px 0}
 .card .btn{width:100%;margin-top:8px}
 .cartbox{background:#1c2230;padding:18px;border-radius:12px}
 .cart-item{display:flex;justify-content:space-between;align-items:center;gap:10px;border-bottom:1px solid #444;padding:12px 0;flex-wrap:wrap}
-.cart-item button{padding:7px 10px;border-radius:7px}
+.cart-item button{padding:7px 10px;border-radius:7px;border:0}
+.qty{display:flex;align-items:center;gap:9px}
+.qty button{background:#ffae51}
 footer{text-align:center;padding:28px;color:#999;background:#171b24;margin-top:30px;line-height:1.8}
 footer strong{color:#ffb45e}
 #cartCount{color:#ffbd70}
 .empty{color:#aaa;padding:12px 0}
-@media(max-width:480px){.hero h1{font-size:25px}.section{padding:16px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:480px){
+.hero h1{font-size:25px}
+.section{padding:16px}
+.grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
 </style>
 </head>
 <body>
 
 <header>
-  <div class="logo">🍮 Caramel AI Solutions</div>
-  <p>AI Learning • Digital Knowledge • Smart Future</p>
+<div class="logo">🍮 Caramel AI Solutions</div>
+<p>AI Learning • Digital Knowledge • Smart Future</p>
 </header>
 
 <nav>
-  <button onclick="goTo('store')">📚 E-book Store</button>
-  <button onclick="goTo('bundles')">📦 AI Bundles</button>
-  <button onclick="goTo('cart')">🛒 Cart (<span id="cartCount">0</span>)</button>
+<button onclick="goTo('store')">📚 E-book Store</button>
+<button onclick="goTo('bundles')">📦 AI Bundles</button>
+<button onclick="goTo('cart')">🛒 Cart (<span id="cartCount">0</span>)</button>
 </nav>
 
 <section class="hero">
-  <h1>Learn AI. Build Skills. Grow Smarter.</h1>
-  <p>Discover AI learning e-books, practical guides and digital bundles.<br>Start your AI learning journey today.</p>
+<h1>Learn AI. Build Skills. Grow Smarter.</h1>
+<p>Discover AI learning e-books, practical guides and digital bundles.<br>
+Start your AI learning journey today.</p>
 </section>
 
-<input class="search" id="search" type="search" placeholder="🔍 Search AI learning e-books..." oninput="renderBooks()">
+<input class="search" id="search" type="search"
+placeholder="🔍 Search AI learning e-books..."
+oninput="renderBooks()">
 
 <section class="section" id="store">
-  <h2>📚 AI Learning E-books</h2>
-  <div class="filters" id="filters"></div>
-  <div class="grid" id="bookGrid"></div>
+<h2>📚 AI Learning E-books</h2>
+<div class="filters" id="filters"></div>
+<div class="grid" id="bookGrid"></div>
 </section>
 
 <section class="section" id="bundles">
-  <h2>📦 AI E-book Bundles</h2>
-  <div class="grid" id="bundleGrid"></div>
+<h2>📦 AI E-book Bundles</h2>
+<div class="grid" id="bundleGrid"></div>
 </section>
 
 <section class="section" id="cart">
-  <h2>🛒 Your Shopping Cart</h2>
-  <div class="cartbox">
-    <div id="cartItems"></div>
-    <h3>Total: ₹<span id="total">0</span></h3>
-    <button class="btn" onclick="checkout()">Proceed to Payment</button>
-    <button class="btn" onclick="clearCart()">Clear Cart</button>
-  </div>
+<h2>🛒 Your Shopping Cart</h2>
+<div class="cartbox">
+<div id="cartItems"></div>
+<h3>Total: ₹<span id="total">0</span></h3>
+<button class="btn" onclick="checkout()">Proceed to Payment</button>
+<button class="btn" onclick="clearCart()">Clear Cart</button>
+</div>
 </section>
 
 <footer>
-  <strong>Caramel AI Solutions</strong><br>
-  AI Learning • Digital Knowledge • Smart Future<br>
-  Designed by <strong>Sandeep Kumar Enterprise</strong>
+<strong>Caramel AI Solutions</strong><br>
+AI Learning • Digital Knowledge • Smart Future<br>
+Designed by <strong>Sandeep Kumar Enterprise</strong>
 </footer>
 
 <script>
+
+// PAYMENT CONFIGURATION
+// Add your verified payment page URL here later.
+const PAYMENT_LINK = "";
+
+// EBOOK DOWNLOAD LINKS
+// Add the correct Google Drive direct download URL for each ebook.
 const products = [
-  {id:1,title:"AI for Beginners",cat:"AI Basics",price:99,desc:"Learn AI fundamentals, concepts and how artificial intelligence works.",emoji:"🤖",download:""},
-  {id:2,title:"ChatGPT Prompt Mastery",cat:"ChatGPT",price:149,desc:"Learn prompt writing and effective ChatGPT techniques.",emoji:"💬",download:""},
-  {id:3,title:"AI Tools Master Guide",cat:"AI Tools",price:149,desc:"Discover AI tools for learning, work and productivity.",emoji:"🧰",download:""},
-  {id:4,title:"AI Content Creation",cat:"Content Creation",price:199,desc:"Create content and social media ideas with AI.",emoji:"✍️",download:""},
-  {id:5,title:"AI Digital Marketing",cat:"Business",price:199,desc:"Learn AI-assisted marketing and online promotion.",emoji:"📈",download:""},
-  {id:6,title:"AI Automation Basics",cat:"AI Tools",price:199,desc:"Understand automation and AI-powered workflows.",emoji:"⚙️",download:""},
-  {id:7,title:"AI Freelancing Guide",cat:"Business",price:149,desc:"Explore AI skills and freelancing opportunities.",emoji:"💼",download:""},
-  {id:8,title:"AI Image Creation Guide",cat:"AI Tools",price:149,desc:"Beginner guide to AI image generation and creativity.",emoji:"🎨",download:""}
+{id:1,title:"AI for Beginners",cat:"AI Basics",price:99,
+desc:"Learn AI fundamentals, concepts and how artificial intelligence works.",
+emoji:"🤖",download:""},
+
+{id:2,title:"ChatGPT Prompt Mastery",cat:"ChatGPT",price:149,
+desc:"Learn prompt writing and effective ChatGPT techniques.",
+emoji:"💬",download:""},
+
+{id:3,title:"AI Tools Master Guide",cat:"AI Tools",price:149,
+desc:"Discover AI tools for learning, work and productivity.",
+emoji:"🧰",download:""},
+
+{id:4,title:"AI Content Creation",cat:"Content Creation",price:199,
+desc:"Create content and social media ideas with AI.",
+emoji:"✍️",download:""},
+
+{id:5,title:"AI Digital Marketing",cat:"Business",price:199,
+desc:"Learn AI-assisted marketing and online promotion.",
+emoji:"📈",download:""},
+
+{id:6,title:"AI Automation Basics",cat:"AI Tools",price:199,
+desc:"Understand automation and AI-powered workflows.",
+emoji:"⚙️",download:""},
+
+{id:7,title:"AI Freelancing Guide",cat:"Business",price:149,
+desc:"Explore AI skills and freelancing opportunities.",
+emoji:"💼",download:""},
+
+{id:8,title:"AI Image Creation Guide",cat:"AI Tools",price:149,
+desc:"Beginner guide to AI image generation and creativity.",
+emoji:"🎨",download:""}
 ];
 
+// BUNDLE DOWNLOAD LINKS
+// Each bundle needs its own ZIP file link.
 const bundles = [
-  {id:101,title:"AI Starter Bundle",cat:"Bundle",price:299,desc:"AI Basics, ChatGPT Prompt Mastery and AI Tools Guide.",emoji:"🚀",download:""},
-  {id:102,title:"AI Creator Bundle",cat:"Bundle",price:399,desc:"Content Creation, Image Creation and Prompt Mastery guides.",emoji:"🎨",download:""},
-  {id:103,title:"AI Business Bundle",cat:"Bundle",price:499,desc:"Digital Marketing, Automation and Freelancing guides.",emoji:"💼",download:""}
+{id:101,title:"AI Starter Bundle",cat:"Bundle",price:299,
+desc:"AI Basics, ChatGPT Prompt Mastery and AI Tools Guide.",
+emoji:"🚀",download:""},
+
+{id:102,title:"AI Creator Bundle",cat:"Bundle",price:399,
+desc:"Content Creation, Image Creation and Prompt Mastery guides.",
+emoji:"🎨",download:""},
+
+{id:103,title:"AI Business Bundle",cat:"Bundle",price:499,
+desc:"Digital Marketing, Automation and Freelancing guides.",
+emoji:"💼",download:""}
 ];
 
 let cart = [];
 let activeCategory = "All";
 
 function goTo(id){
-  document.getElementById(id).scrollIntoView({behavior:"smooth"});
+document.getElementById(id).scrollIntoView({behavior:"smooth"});
 }
 
 function setupFilters(){
-  const categories = ["All",...new Set(products.map(p=>p.cat))];
-  document.getElementById("filters").innerHTML = categories.map(c =>
-    `<button class="${activeCategory===c?"active":""}" onclick="setCategory('${c}')">${c}</button>`
-  ).join("");
+const categories = ["All",...new Set(products.map(p=>p.cat))];
+
+document.getElementById("filters").innerHTML =
+categories.map(c=>`
+<button class="${activeCategory===c?"active":""}"
+onclick="setCategory('${c}')">${c}</button>
+`).join("");
 }
 
 function setCategory(category){
-  activeCategory = category;
-  renderBooks();
+activeCategory=category;
+renderBooks();
 }
 
 function createCard(p){
-  return `<div class="card">
-    <div class="cover">${p.emoji}<br>${p.title}</div>
-    <h3>${p.title}</h3>
-    <p>${p.desc}</p>
-    <div class="price">₹${p.price}</div>
-    <button class="btn" onclick="addCart(${p.id})">Add to Cart</button>
-    <button class="btn" onclick="buyNow(${p.id})">Buy Now</button>
-    <button class="btn" onclick="downloadFile(${p.id})">Download</button>
-  </div>`;
+return `
+<div class="card">
+<div class="cover">${p.emoji}<br>${p.title}</div>
+<h3>${p.title}</h3>
+<p>${p.desc}</p>
+<div class="price">₹${p.price}</div>
+<button class="btn" onclick="addCart(${p.id})">Add to Cart</button>
+<button class="btn" onclick="buyNow(${p.id})">Buy Now</button>
+<button class="btn" onclick="downloadFile(${p.id})">Download</button>
+</div>`;
 }
 
 function renderBooks(){
-  setupFilters();
-  const query = document.getElementById("search").value.toLowerCase().trim();
-  const filtered = products.filter(p =>
-    (activeCategory==="All" || p.cat===activeCategory) &&
-    (p.title.toLowerCase().includes(query) ||
-     p.desc.toLowerCase().includes(query) ||
-     p.cat.toLowerCase().includes(query))
-  );
-  document.getElementById("bookGrid").innerHTML = filtered.length
-    ? filtered.map(createCard).join("")
-    : `<p class="empty">No e-books found.</p>`;
-  document.getElementById("bundleGrid").innerHTML = bundles.map(createCard).join("");
-  updateCart();
+setupFilters();
+
+const query=document.getElementById("search").value.toLowerCase().trim();
+
+const filtered=products.filter(p=>
+(activeCategory==="All" || p.cat===activeCategory) &&
+(
+p.title.toLowerCase().includes(query) ||
+p.desc.toLowerCase().includes(query) ||
+p.cat.toLowerCase().includes(query)
+)
+);
+
+document.getElementById("bookGrid").innerHTML =
+filtered.length
+? filtered.map(createCard).join("")
+: `<p class="empty">No e-books found.</p>`;
+
+document.getElementById("bundleGrid").innerHTML =
+bundles.map(createCard).join("");
+
+updateCart();
 }
 
 function findProduct(id){
-  return [...products,...bundles].find(p=>p.id===id);
+return [...products,...bundles].find(p=>p.id===id);
 }
 
 function addCart(id){
-  const product = findProduct(id);
-  if(!product)return;
-  const item = cart.find(x=>x.id===id);
-  if(item)item.qty++;
-  else cart.push({...product,qty:1});
-  updateCart();
-  alert(product.title+" added to cart!");
+const product=findProduct(id);
+if(!product)return;
+
+const item=cart.find(x=>x.id===id);
+
+if(item)item.qty++;
+else cart.push({...product,qty:1});
+
+updateCart();
+alert(product.title+" added to cart!");
+}
+
+function changeQuantity(id,change){
+const item=cart.find(x=>x.id===id);
+if(!item)return;
+
+item.qty+=change;
+
+if(item.qty<=0){
+cart=cart.filter(x=>x.id!==id);
+}
+
+updateCart();
 }
 
 function removeCart(id){
-  cart = cart.filter(x=>x.id!==id);
-  updateCart();
+cart=cart.filter(x=>x.id!==id);
+updateCart();
 }
 
 function clearCart(){
-  cart=[];
-  updateCart();
+cart=[];
+updateCart();
 }
 
 function updateCart(){
-  document.getElementById("cartCount").textContent =
-    cart.reduce((sum,item)=>sum+item.qty,0);
+document.getElementById("cartCount").textContent=
+cart.reduce((sum,item)=>sum+item.qty,0);
 
-  document.getElementById("cartItems").innerHTML = cart.length
-    ? cart.map(item=>`<div class="cart-item">
-        <span>${item.title} × ${item.qty}</span>
-        <strong>₹${item.price*item.qty}</strong>
-        <button onclick="removeCart(${item.id})">Remove</button>
-      </div>`).join("")
-    : `<p class="empty">Your cart is empty.</p>`;
+document.getElementById("cartItems").innerHTML=cart.length
+? cart.map(item=>`
+<div class="cart-item">
+<div>
+<strong>${item.title}</strong>
+<div class="qty">
+<button onclick="changeQuantity(${item.id},-1)">−</button>
+<span>${item.qty}</span>
+<button onclick="changeQuantity(${item.id},1)">+</button>
+</div>
+</div>
+<strong>₹${item.price*item.qty}</strong>
+<button onclick="removeCart(${item.id})">Remove</button>
+</div>
+`).join("")
+: `<p class="empty">Your cart is empty.</p>`;
 
-  document.getElementById("total").textContent =
-    cart.reduce((sum,item)=>sum+item.price*item.qty,0);
+document.getElementById("total").textContent=
+cart.reduce((sum,item)=>sum+item.price*item.qty,0);
 }
 
 function buyNow(id){
-  addCart(id);
-  goTo("cart");
+addCart(id);
+goTo("cart");
 }
 
 function checkout(){
-  if(!cart.length){
-    alert("Your cart is empty!");
-    return;
-  }
-  alert("Payment gateway is not connected yet. Add your payment link to enable checkout.");
+if(!cart.length){
+alert("Your cart is empty!");
+return;
+}
+
+if(!PAYMENT_LINK){
+alert("Payment gateway is not connected yet. Payment link configuration is required.");
+return;
+}
+
+window.open(PAYMENT_LINK,"_blank");
 }
 
 function downloadFile(id){
-  const product = findProduct(id);
-  if(!product)return;
-  if(!product.download){
-    alert("This e-book file is not uploaded yet. A PDF or ZIP download link needs to be added.");
-    return;
-  }
-  window.open(product.download,"_blank");
+const product=findProduct(id);
+if(!product)return;
+
+if(!product.download){
+alert("Download link is not configured yet for "+product.title+".");
+return;
+}
+
+window.open(product.download,"_blank","noopener");
 }
 
 renderBooks();
-</script>
 
+</script>
 </body>
 </html>
+
